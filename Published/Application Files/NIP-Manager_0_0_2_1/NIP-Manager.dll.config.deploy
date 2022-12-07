@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="NIP_Manager.Main" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <NIP_Manager.Main>
+            <setting name="strike_path" serializeAs="String">
+                <value>C:\Program Files\</value>
+            </setting>
+            <setting name="oxide_path" serializeAs="String">
+                <value>C:\Program Files\</value>
+            </setting>
+        </NIP_Manager.Main>
+    </userSettings>
+</configuration>

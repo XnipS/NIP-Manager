@@ -31,19 +31,20 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Master));
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.strike_title = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.progressBar1 = new System.Windows.Forms.ProgressBar();
-			this.button3 = new System.Windows.Forms.Button();
+			this.strike_status = new System.Windows.Forms.Label();
+			this.strike_install = new System.Windows.Forms.Button();
+			this.strike_repair = new System.Windows.Forms.Button();
+			this.strike_progress = new System.Windows.Forms.ProgressBar();
+			this.strike_play = new System.Windows.Forms.Button();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
-			this.progressBar2 = new System.Windows.Forms.ProgressBar();
-			this.button6 = new System.Windows.Forms.Button();
+			this.oxide_status = new System.Windows.Forms.Label();
+			this.oxide_install = new System.Windows.Forms.Button();
+			this.oxide_repair = new System.Windows.Forms.Button();
+			this.oxide_progress = new System.Windows.Forms.ProgressBar();
+			this.oxide_play = new System.Windows.Forms.Button();
 			this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.flowLayoutPanel3.SuspendLayout();
@@ -54,11 +55,11 @@
 			this.flowLayoutPanel1.AutoSize = true;
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel1.Controls.Add(this.strike_title);
-			this.flowLayoutPanel1.Controls.Add(this.label1);
-			this.flowLayoutPanel1.Controls.Add(this.button1);
-			this.flowLayoutPanel1.Controls.Add(this.button2);
-			this.flowLayoutPanel1.Controls.Add(this.progressBar1);
-			this.flowLayoutPanel1.Controls.Add(this.button3);
+			this.flowLayoutPanel1.Controls.Add(this.strike_status);
+			this.flowLayoutPanel1.Controls.Add(this.strike_install);
+			this.flowLayoutPanel1.Controls.Add(this.strike_repair);
+			this.flowLayoutPanel1.Controls.Add(this.strike_progress);
+			this.flowLayoutPanel1.Controls.Add(this.strike_play);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -75,64 +76,67 @@
 			this.strike_title.TabIndex = 0;
 			this.strike_title.Text = "Strike Warfare";
 			// 
-			// label1
+			// strike_status
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label1.Location = new System.Drawing.Point(3, 30);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(126, 21);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Status: Unknown";
+			this.strike_status.AutoSize = true;
+			this.strike_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.strike_status.Location = new System.Drawing.Point(3, 30);
+			this.strike_status.Name = "strike_status";
+			this.strike_status.Size = new System.Drawing.Size(126, 21);
+			this.strike_status.TabIndex = 1;
+			this.strike_status.Text = "Status: Unknown";
 			// 
-			// button1
+			// strike_install
 			// 
-			this.button1.Enabled = false;
-			this.button1.Location = new System.Drawing.Point(3, 54);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(200, 23);
-			this.button1.TabIndex = 2;
-			this.button1.Text = "Install";
-			this.button1.UseVisualStyleBackColor = true;
+			this.strike_install.Enabled = false;
+			this.strike_install.Location = new System.Drawing.Point(3, 54);
+			this.strike_install.Name = "strike_install";
+			this.strike_install.Size = new System.Drawing.Size(200, 23);
+			this.strike_install.TabIndex = 2;
+			this.strike_install.Text = "Install";
+			this.strike_install.UseVisualStyleBackColor = true;
+			this.strike_install.Click += new System.EventHandler(this.strike_install_Click);
 			// 
-			// button2
+			// strike_repair
 			// 
-			this.button2.Enabled = false;
-			this.button2.Location = new System.Drawing.Point(3, 83);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(200, 23);
-			this.button2.TabIndex = 3;
-			this.button2.Text = "Repair";
-			this.button2.UseVisualStyleBackColor = true;
+			this.strike_repair.Enabled = false;
+			this.strike_repair.Location = new System.Drawing.Point(3, 83);
+			this.strike_repair.Name = "strike_repair";
+			this.strike_repair.Size = new System.Drawing.Size(200, 23);
+			this.strike_repair.TabIndex = 3;
+			this.strike_repair.Text = "Repair";
+			this.strike_repair.UseVisualStyleBackColor = true;
+			this.strike_repair.Click += new System.EventHandler(this.strike_repair_Click);
 			// 
-			// progressBar1
+			// strike_progress
 			// 
-			this.progressBar1.Location = new System.Drawing.Point(3, 112);
-			this.progressBar1.Name = "progressBar1";
-			this.progressBar1.Size = new System.Drawing.Size(200, 23);
-			this.progressBar1.TabIndex = 4;
+			this.strike_progress.Location = new System.Drawing.Point(3, 112);
+			this.strike_progress.Name = "strike_progress";
+			this.strike_progress.Size = new System.Drawing.Size(200, 23);
+			this.strike_progress.TabIndex = 4;
 			// 
-			// button3
+			// strike_play
 			// 
-			this.button3.Enabled = false;
-			this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.button3.Location = new System.Drawing.Point(3, 141);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(200, 46);
-			this.button3.TabIndex = 5;
-			this.button3.Text = "Play";
-			this.button3.UseVisualStyleBackColor = true;
+			this.strike_play.Enabled = false;
+			this.strike_play.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.strike_play.Location = new System.Drawing.Point(3, 141);
+			this.strike_play.Name = "strike_play";
+			this.strike_play.Size = new System.Drawing.Size(200, 46);
+			this.strike_play.TabIndex = 5;
+			this.strike_play.Text = "Play";
+			this.strike_play.UseVisualStyleBackColor = true;
+			this.strike_play.Click += new System.EventHandler(this.strike_play_Click);
 			// 
 			// flowLayoutPanel2
 			// 
 			this.flowLayoutPanel2.AutoSize = true;
 			this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel2.Controls.Add(this.label2);
-			this.flowLayoutPanel2.Controls.Add(this.label3);
-			this.flowLayoutPanel2.Controls.Add(this.button4);
-			this.flowLayoutPanel2.Controls.Add(this.button5);
-			this.flowLayoutPanel2.Controls.Add(this.progressBar2);
-			this.flowLayoutPanel2.Controls.Add(this.button6);
+			this.flowLayoutPanel2.Controls.Add(this.oxide_status);
+			this.flowLayoutPanel2.Controls.Add(this.oxide_install);
+			this.flowLayoutPanel2.Controls.Add(this.oxide_repair);
+			this.flowLayoutPanel2.Controls.Add(this.oxide_progress);
+			this.flowLayoutPanel2.Controls.Add(this.oxide_play);
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(215, 3);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -149,53 +153,53 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Oxide";
 			// 
-			// label3
+			// oxide_status
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label3.Location = new System.Drawing.Point(3, 30);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(126, 21);
-			this.label3.TabIndex = 1;
-			this.label3.Text = "Status: Unknown";
+			this.oxide_status.AutoSize = true;
+			this.oxide_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.oxide_status.Location = new System.Drawing.Point(3, 30);
+			this.oxide_status.Name = "oxide_status";
+			this.oxide_status.Size = new System.Drawing.Size(126, 21);
+			this.oxide_status.TabIndex = 1;
+			this.oxide_status.Text = "Status: Unknown";
 			// 
-			// button4
+			// oxide_install
 			// 
-			this.button4.Enabled = false;
-			this.button4.Location = new System.Drawing.Point(3, 54);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(200, 23);
-			this.button4.TabIndex = 2;
-			this.button4.Text = "Install";
-			this.button4.UseVisualStyleBackColor = true;
+			this.oxide_install.Enabled = false;
+			this.oxide_install.Location = new System.Drawing.Point(3, 54);
+			this.oxide_install.Name = "oxide_install";
+			this.oxide_install.Size = new System.Drawing.Size(200, 23);
+			this.oxide_install.TabIndex = 2;
+			this.oxide_install.Text = "Install";
+			this.oxide_install.UseVisualStyleBackColor = true;
 			// 
-			// button5
+			// oxide_repair
 			// 
-			this.button5.Enabled = false;
-			this.button5.Location = new System.Drawing.Point(3, 83);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(200, 23);
-			this.button5.TabIndex = 3;
-			this.button5.Text = "Repair";
-			this.button5.UseVisualStyleBackColor = true;
+			this.oxide_repair.Enabled = false;
+			this.oxide_repair.Location = new System.Drawing.Point(3, 83);
+			this.oxide_repair.Name = "oxide_repair";
+			this.oxide_repair.Size = new System.Drawing.Size(200, 23);
+			this.oxide_repair.TabIndex = 3;
+			this.oxide_repair.Text = "Repair";
+			this.oxide_repair.UseVisualStyleBackColor = true;
 			// 
-			// progressBar2
+			// oxide_progress
 			// 
-			this.progressBar2.Location = new System.Drawing.Point(3, 112);
-			this.progressBar2.Name = "progressBar2";
-			this.progressBar2.Size = new System.Drawing.Size(200, 23);
-			this.progressBar2.TabIndex = 4;
+			this.oxide_progress.Location = new System.Drawing.Point(3, 112);
+			this.oxide_progress.Name = "oxide_progress";
+			this.oxide_progress.Size = new System.Drawing.Size(200, 23);
+			this.oxide_progress.TabIndex = 4;
 			// 
-			// button6
+			// oxide_play
 			// 
-			this.button6.Enabled = false;
-			this.button6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.button6.Location = new System.Drawing.Point(3, 141);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(200, 46);
-			this.button6.TabIndex = 5;
-			this.button6.Text = "Play";
-			this.button6.UseVisualStyleBackColor = true;
+			this.oxide_play.Enabled = false;
+			this.oxide_play.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.oxide_play.Location = new System.Drawing.Point(3, 141);
+			this.oxide_play.Name = "oxide_play";
+			this.oxide_play.Size = new System.Drawing.Size(200, 46);
+			this.oxide_play.TabIndex = 5;
+			this.oxide_play.Text = "Play";
+			this.oxide_play.UseVisualStyleBackColor = true;
 			// 
 			// flowLayoutPanel3
 			// 
@@ -207,6 +211,11 @@
 			this.flowLayoutPanel3.Name = "flowLayoutPanel3";
 			this.flowLayoutPanel3.Size = new System.Drawing.Size(424, 196);
 			this.flowLayoutPanel3.TabIndex = 2;
+			// 
+			// folderBrowserDialog1
+			// 
+			this.folderBrowserDialog1.Description = "Select Location";
+			this.folderBrowserDialog1.UseDescriptionForTitle = true;
 			// 
 			// Master
 			// 
@@ -237,18 +246,19 @@
 
 		private FlowLayoutPanel flowLayoutPanel1;
 		private Label strike_title;
-		private Label label1;
-		private Button button1;
-		private Button button2;
-		private ProgressBar progressBar1;
-		private Button button3;
+		private Label strike_status;
+		private Button strike_install;
+		private Button strike_repair;
+		private ProgressBar strike_progress;
+		private Button strike_play;
 		private FlowLayoutPanel flowLayoutPanel2;
 		private Label label2;
-		private Label label3;
-		private Button button4;
-		private Button button5;
-		private ProgressBar progressBar2;
-		private Button button6;
+		private Label oxide_status;
+		private Button oxide_install;
+		private Button oxide_repair;
+		private ProgressBar oxide_progress;
+		private Button oxide_play;
 		private FlowLayoutPanel flowLayoutPanel3;
+		private FolderBrowserDialog folderBrowserDialog1;
 	}
 }

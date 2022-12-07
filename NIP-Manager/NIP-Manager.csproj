@@ -15,4 +15,23 @@
     <Content Include="Icon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SharpCompress" Version="0.32.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Main.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Main.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Main.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Main.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>
