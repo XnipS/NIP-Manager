@@ -4,8 +4,12 @@
 class console {
  public:
   static void PrintToConsole(std::string input) {
+#ifdef DEBUG_ON
     std::cout << "[" << console::currentDateTime() << "] " << input
               << std::endl;
+#else
+    std::cout << ">>> " << input << std::endl;
+#endif
   };
 
  private:

@@ -1,4 +1,6 @@
 #pragma once
+#include <fstream>
+
 #include "console.h"
 
 class main {

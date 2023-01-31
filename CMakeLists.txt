@@ -10,3 +10,5 @@ include_directories(
 )
 
 add_executable(NIP-Manager src/main.cpp)
+
+target_link_libraries(NIP-Manager jsoncpp)

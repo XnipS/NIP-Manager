@@ -1,0 +1,16 @@
+{
+  "Games": [
+    {
+      "Name": "Oxide",
+      "Latest": "v0.3.4",
+      "Url": "https://github.com/XnipS/Oxide/releases/download/v0.3.4/Oxide_Linux.tar.gz",
+      "Msg": "Stale"
+    },
+    {
+      "Name": "Strike",
+      "Latest": "v0.0.1",
+      "Url": "https://github.com/XnipS/StrikeWarfare/releases/download/v0.0.1/StrikeWarfare_27-11-2022_13-17.tar.gz",
+      "Msg": "Dead"
+    }
+  ]
+}
