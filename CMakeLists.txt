@@ -11,4 +11,9 @@ include_directories(
 
 add_executable(NIP-Manager src/main.cpp)
 
-target_link_libraries(NIP-Manager jsoncpp)
+target_link_libraries(NIP-Manager jsoncpp curl)
+
+message(STATUS "Adding PCHs")
+target_precompile_headers(NIP-Manager
+PRIVATE src/pch.h
+	)
