@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using System.Net;
-using Microsoft.VisualBasic;
 using SharpCompress.Common;
 using SharpCompress.Readers;
 
