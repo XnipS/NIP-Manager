@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 #include "console.h"
 #include "download.h"
 #include "extractor.h"
@@ -9,8 +6,18 @@
 bool m_isRunning;
 Json::Value data;
 
+bool DoesExist(const std::string& name) {
+  struct stat buffer;
+  return (stat(name.c_str(), &buffer) == 0);
+}
+
 void Init() {
   console::PrintToConsole("Welcome to NIP-Manager!");
+  if (DoesExist("./installed.nip")) {
+    console::PrintToConsole("Data file found!");
+  } else {
+    console::PrintToConsole("Data file missing or not generated!");
+  }
   m_isRunning = true;
 }
 
@@ -32,7 +39,7 @@ void AllGames() {
 
 void Download(int gameId) {
   if (gameId == -1) {
-    console::PrintToConsole("Selection is unknown. (You miss typed)");
+    console::PrintToConsole("Selection is unknown. (You miss-typed)");
   } else {
     mkdir("downloaded", 0777);
     std::string path = "./downloaded/output.tar.gz";
