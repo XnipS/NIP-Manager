@@ -7,7 +7,7 @@ static std::size_t write_data(void *ptr, std::size_t size, std::size_t nmemb,
   return written;
 }
 
-inline int DownloadFile(std::string url, std::string output) {
+inline void DownloadFile(std::string url, std::string output) {
   CURL *curl_handle;
   static const std::string pagefilename = output;
   FILE *pagefile;
@@ -43,6 +43,4 @@ inline int DownloadFile(std::string url, std::string output) {
   curl_easy_cleanup(curl_handle);
 
   curl_global_cleanup();
-
-  return 0;
 }
