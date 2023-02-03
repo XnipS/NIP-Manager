@@ -9,18 +9,18 @@ add_library(NIP-Manager STATIC
 	src/console.cpp
 	src/download.cpp
 	src/extractor.cpp
+	src/savefile.cpp
 
 	include/console.h
 	include/download.h
 	include/extractor.h
 	include/core.h
-	include/pch.h
+	include/savefile.h
 )
+
 add_executable(NIP-Manager-App src/main.cpp)
 
 target_link_libraries(NIP-Manager-App jsoncpp curl archive NIP-Manager)
 
 message(STATUS "Adding PCHs")
-target_precompile_headers(NIP-Manager
-PRIVATE include/pch.h
-	)
+target_precompile_headers(NIP-Manager PRIVATE include/pch.h)

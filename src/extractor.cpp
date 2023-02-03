@@ -49,7 +49,7 @@ void extract(const std::string input) {
 
     const char *path = archive_entry_pathname(entry);
     char newPath[PATH_MAX + 1];
-    snprintf(newPath, PATH_MAX, "./downloaded/%s", path);
+    snprintf(newPath, PATH_MAX, "./downloaded/%s", path);  // TODO FIX HARD CODE
     archive_entry_set_pathname(entry, newPath);
 
     r = archive_write_header(ext, entry);

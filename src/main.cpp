@@ -1,7 +1,11 @@
+#include <iostream>
+#include <string>
+
 #include "../include/console.h"
 #include "../include/download.h"
 #include "../include/extractor.h"
 #include "../include/pch.h"
+#include "../include/savefile.h"
 
 bool m_isRunning;
 Json::Value data;
@@ -13,7 +17,7 @@ bool DoesExist(const std::string& name) {
 
 void Init() {
   PrintToConsole("Welcome to NIP-Manager!");
-  if (DoesExist("./installed.nip")) {
+  if (DoesExist((std::string)NIP_SaveLocation + NIP_SaveFile)) {
     PrintToConsole("Data file found!");
   } else {
     PrintToConsole("Data file missing or not generated!");
@@ -41,14 +45,14 @@ void Download(int gameId) {
   if (gameId == -1) {
     PrintToConsole("Selection is unknown. (You miss-typed)");
   } else {
-    mkdir("downloaded", 0777);
-    std::string path = "./downloaded/output.tar.gz";
+    mkdir(NIP_DownloadLocation, 0777);
+    std::string path = (std::string)NIP_DownloadLocation + "";
     PrintToConsole("Downloading to ->" + path);
     DownloadFile(data["Games"][gameId]["Url"].asString(), path);
     PrintToConsole("Extracting...");
-    // console::PrintToConsole(path + "/" +
-    //                         data["Games"][gameId]["Name"].asString(););
-    extract("./downloaded/output.tar.gz");
+    PrintToConsole(path + "/" + data["Games"][gameId]["Name"].asString());
+    extract(path);
+    if (std::remove(path.c_str()) != 0) perror("Error deleting file");
     PrintToConsole("Done!");
   }
 }
@@ -94,14 +98,16 @@ void RequestCommand() {
   } else {
     PrintToConsole("Unknown command.");
   }
-  std::cout << BigLine << std::endl;
+  std::cout << NIP_BigLine << std::endl;
 }
 
-int main() {
-  Init();
+int main(int argc, char* args[]) {
+  SaveFile f = LoadSave();
+  SaveToSaveFile(&f);
+  // Init();
 
-  while (m_isRunning) {
-    RequestCommand();
-  }
+  // while (m_isRunning) {
+  //   RequestCommand();
+  // }
   return 0;
 }
