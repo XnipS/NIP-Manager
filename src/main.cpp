@@ -102,8 +102,8 @@ void RequestCommand() {
 }
 
 int main(int argc, char* args[]) {
-  SaveFile f = LoadSave();
-  SaveToSaveFile(&f);
+  SaveFile f = ReadSaveFile();
+  WriteSaveFile(&f);
   // Init();
 
   // while (m_isRunning) {

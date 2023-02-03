@@ -12,6 +12,6 @@ struct SaveFile {
 
 void GenerateSaveFile();
 
-SaveFile LoadSave();
+SaveFile ReadSaveFile();
 
-void SaveToSaveFile(SaveFile* file);
+void WriteSaveFile(SaveFile* file);

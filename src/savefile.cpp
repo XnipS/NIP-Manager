@@ -10,7 +10,7 @@ void GenerateSaveFile(){
     // SaveData newData save.data.push_back()
 };
 
-SaveFile LoadSave() {
+SaveFile ReadSaveFile() {
   // Get raw savefile
   std::ifstream input((std::string)NIP_SaveLocation + NIP_SaveFile);
 
@@ -36,7 +36,7 @@ SaveFile LoadSave() {
   return output;
 };
 
-void SaveToSaveFile(SaveFile* file) {
+void WriteSaveFile(SaveFile* file) {
   std::ofstream input((std::string)NIP_SaveLocation +
                       "/parse.nip");  // NIP_SaveFile);
   for (int i = 0; i < file->data.size(); i++) {
