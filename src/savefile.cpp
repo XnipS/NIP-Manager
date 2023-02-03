@@ -20,6 +20,9 @@ SaveFile ReadSaveFile() {
   SaveFile output;
   for (std::string line; getline(input, line, '|');) {
     if (i == 0) {
+      if (line == "\n") {
+        break;
+      }
       SaveData da;
       da.title = line;
       output.data.push_back(da);

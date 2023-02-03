@@ -10,12 +10,14 @@ add_library(NIP-Manager STATIC
 	src/download.cpp
 	src/extractor.cpp
 	src/savefile.cpp
+	src/cloud.cpp
 
 	include/console.h
 	include/download.h
 	include/extractor.h
 	include/core.h
 	include/savefile.h
+	include/cloud.h
 )
 
 add_executable(NIP-Manager-App src/main.cpp)
