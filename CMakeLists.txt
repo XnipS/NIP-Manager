@@ -5,15 +5,22 @@ project(NIP-Manager LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(
-    /include
+add_library(NIP-Manager STATIC
+	src/console.cpp
+	src/download.cpp
+	src/extractor.cpp
+
+	include/console.h
+	include/download.h
+	include/extractor.h
+	include/core.h
+	include/pch.h
 )
+add_executable(NIP-Manager-App src/main.cpp)
 
-add_executable(NIP-Manager src/main.cpp)
-
-target_link_libraries(NIP-Manager jsoncpp curl archive)
+target_link_libraries(NIP-Manager-App jsoncpp curl archive NIP-Manager)
 
 message(STATUS "Adding PCHs")
 target_precompile_headers(NIP-Manager
-PRIVATE src/pch.h
+PRIVATE include/pch.h
 	)

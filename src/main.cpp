@@ -1,7 +1,7 @@
-#include "console.h"
-#include "download.h"
-#include "extractor.h"
-#include "pch.h"
+#include "../include/console.h"
+#include "../include/download.h"
+#include "../include/extractor.h"
+#include "../include/pch.h"
 
 bool m_isRunning;
 Json::Value data;
@@ -12,17 +12,17 @@ bool DoesExist(const std::string& name) {
 }
 
 void Init() {
-  console::PrintToConsole("Welcome to NIP-Manager!");
+  PrintToConsole("Welcome to NIP-Manager!");
   if (DoesExist("./installed.nip")) {
-    console::PrintToConsole("Data file found!");
+    PrintToConsole("Data file found!");
   } else {
-    console::PrintToConsole("Data file missing or not generated!");
+    PrintToConsole("Data file missing or not generated!");
   }
   m_isRunning = true;
 }
 
 void Quit() {
-  console::PrintToConsole("Goodbye!");
+  PrintToConsole("Goodbye!");
   m_isRunning = false;
 }
 
@@ -39,21 +39,21 @@ void AllGames() {
 
 void Download(int gameId) {
   if (gameId == -1) {
-    console::PrintToConsole("Selection is unknown. (You miss-typed)");
+    PrintToConsole("Selection is unknown. (You miss-typed)");
   } else {
     mkdir("downloaded", 0777);
     std::string path = "./downloaded/output.tar.gz";
-    console::PrintToConsole("Downloading to ->" + path);
+    PrintToConsole("Downloading to ->" + path);
     DownloadFile(data["Games"][gameId]["Url"].asString(), path);
-    console::PrintToConsole("Extracting...");
-    console::PrintToConsole(path + "/" +
-                            data["Games"][gameId]["Name"].asString());
+    PrintToConsole("Extracting...");
+    // console::PrintToConsole(path + "/" +
+    //                         data["Games"][gameId]["Name"].asString(););
     extract("./downloaded/output.tar.gz");
-    console::PrintToConsole("Done!");
+    PrintToConsole("Done!");
   }
 }
 void DownloadPrompt() {
-  console::PrintToConsole("Select Game:");
+  PrintToConsole("Select Game:");
   for (unsigned int x = 0; x < data["Games"].size(); x++) {
     std::cout << data["Games"][x]["Name"];
     std::cout << std::endl;
@@ -73,7 +73,7 @@ void DownloadPrompt() {
 }
 
 void RequestCommand() {
-  console::PrintToConsole("Please enter a command:");
+  PrintToConsole("Please enter a command:");
 
   std::string userInput;
   std::cin >> userInput;
@@ -81,18 +81,18 @@ void RequestCommand() {
   if (userInput == "exit") {
     Quit();
   } else if (userInput == "ping") {
-    console::PrintToConsole("Pong!");
+    PrintToConsole("Pong!");
   } else if (userInput == "allgames") {
     AllGames();
 
   } else if (userInput == "download") {
     DownloadPrompt();
   } else if (userInput == "test") {
-    console::PrintToConsole("Testing!");
+    PrintToConsole("Testing!");
     AllGames();
     DownloadPrompt();
   } else {
-    console::PrintToConsole("Unknown command.");
+    PrintToConsole("Unknown command.");
   }
   std::cout << BigLine << std::endl;
 }

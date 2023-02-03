@@ -1,6 +1,6 @@
-#include "pch.h"
+#include "../include/extractor.h"
 
-static int copy_data(struct archive *ar, struct archive *aw) {
+int copy_data(struct archive *ar, struct archive *aw) {
   int r;
   const void *buff;
   size_t size;
@@ -18,7 +18,7 @@ static int copy_data(struct archive *ar, struct archive *aw) {
   }
 }
 
-static inline void extract(const std::string input) {
+void extract(const std::string input) {
   const char *filename = input.c_str();
   struct archive *a;
   struct archive *ext;

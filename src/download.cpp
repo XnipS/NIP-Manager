@@ -1,13 +1,12 @@
-#pragma once
-#include "pch.h"
+#include "../include/download.h"
 
-static std::size_t write_data(void *ptr, std::size_t size, std::size_t nmemb,
-                              void *stream) {
+std::size_t write_data(void *ptr, std::size_t size, std::size_t nmemb,
+                       void *stream) {
   std::size_t written = fwrite(ptr, size, nmemb, (FILE *)stream);
   return written;
 }
 
-inline void DownloadFile(std::string url, std::string output) {
+void DownloadFile(std::string url, std::string output) {
   CURL *curl_handle;
   static const std::string pagefilename = output;
   FILE *pagefile;
